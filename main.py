@@ -239,7 +239,7 @@ async def analyze_file(file: UploadFile = File(...)):
             try:
                 day_names = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
-                prompt = f"""You are a behavioral addiction analyst. Analyze this TikTok usage data:
+                prompt = f"""You are a social media behavioral addiction analyst. Analyze this TikTok usage data:
 
 📊 KEY METRICS:
 - Total Events Tracked: {total_events}
@@ -314,11 +314,11 @@ Be direct and evidence-based. Maximum 60 words total."""
 
 **2. Risk Factor** Tomorrow ({tomorrow_name}) has {risk_score:.0%} relapse probability based on historical patterns and current local date ({today_name}).
 
-**3. Intervention** Delete the TikTok app tonight and replace it with a 30-minute walk or hobby activity during your peak usage hour."""
+**3. Intervention** Close the TikTok app tonight and replace it with a 30-minute walk or hobby activity during your peak usage hour."""
             elif risk_score > 0.3:
                 ai_recommendation = f"""**1. Pattern Recognition** Moderate addiction pattern detected with elevated usage on {day_names[worst_day]}s and during hour {peak_hour}.
 
-**2. Risk Factor** Tomorrow ({tomorrow_name}) shows {risk_score:.0%} risk based on weekly patterns and recent behavior trends.
+**2. Risk Factor** Tomorrow is ({tomorrow_name}), shows {risk_score:.0%} risk based on weekly patterns and recent behavior trends.
 
 **3. Intervention** Set a 15-minute timer before opening TikTok tomorrow, and use website blockers during work hours."""
             else:
